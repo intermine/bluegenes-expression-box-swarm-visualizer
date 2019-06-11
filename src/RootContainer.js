@@ -1,8 +1,14 @@
 import React from 'react';
 import queryData from './query';
+import Loading from './loading';
 import Plotly from './Chart';
 
 class RootContainer extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { loading: true };
+	}
+
 	componentDidMount() {
 		const {
 			entity: { value: geneId },
@@ -10,6 +16,7 @@ class RootContainer extends React.Component {
 		} = this.props;
 
 		queryData(geneId, serviceUrl).then(res => {
+			this.setState({ loading: false });
 			const { atlasExpression } = res;
 			const GetValues = ar =>
 				ar.map(r => ({
@@ -59,7 +66,7 @@ class RootContainer extends React.Component {
 	render() {
 		return (
 			<div className="rootContainer">
-				<div id="viz"></div>
+				{this.state.loading ? <Loading /> : <div id="viz"></div>}
 			</div>
 		);
 	}
