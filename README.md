@@ -1,10 +1,8 @@
 #  BlueGenes Expression Box Swarm Visualizer
 
 BlueGenes Expression Box Swarm Visualizer is a tool made for [BlueGenes](http://bluegenes.apps.intermine.org) following BlueGenes Tool API.
-Add more description of your tool here! :)
-
-## Licence
-
+Helps visualize expression data using combination of box and swarm plots.
+Visualizes both disease and organism expression data on separate box plots side by side.
 
 ### To set up locally for development
 
