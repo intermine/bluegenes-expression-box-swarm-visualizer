@@ -23,6 +23,11 @@ const geneToExpressionQuery = ({ geneId }) => ({
 			path: 'Gene.id',
 			op: '=',
 			value: geneId
+		},
+		{
+			path: 'atlasExpression.expression',
+			op: '!=',
+			value: 'NONDE'
 		}
 	]
 });
