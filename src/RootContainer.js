@@ -9,25 +9,25 @@ class RootContainer extends React.Component {
 			serviceUrl
 		} = this.props;
 
-		var y0 = [],
-			y1 = [];
-		for (var i = 0; i < 50; i++) {
-			y0[i] = Math.random();
-			y1[i] = Math.random();
-		}
+		queryData(geneId, serviceUrl).then(res => {
+			const { atlasExpression } = res;
+			const expressions = atlasExpression.map(r => Number(r.expression));
+			expressions.sort();
+			const data = [
+				{
+					y: expressions,
+					type: 'box',
+					name: res.name,
+					jitter: 0.3,
+					pointpos: -1.8,
+					marker: {
+						color: 'rgb(7,40,89)'
+					},
+					boxpoints: 'all'
+				}
+			];
 
-		var trace1 = {
-			y: y0,
-			type: 'box',
-			boxpoints: 'all'
-		};
-		var data = [trace1];
-
-		Plotly.newPlot('viz', data, {}, { displayModeBar: false });
-
-		queryData(geneId, serviceUrl).then(() => {
-			// const { atlasExpression } = res;
-			// console.log(atlasExpression);
+			Plotly.newPlot('viz', data, {}, { displayModeBar: false });
 		});
 	}
 
