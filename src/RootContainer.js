@@ -11,23 +11,48 @@ class RootContainer extends React.Component {
 
 		queryData(geneId, serviceUrl).then(res => {
 			const { atlasExpression } = res;
-			const expressions = atlasExpression.map(r => Number(r.expression));
-			expressions.sort();
+			const GetValues = ar =>
+				ar.map(r => ({
+					value: Number(r.tStatistic),
+					name: r.condition
+				}));
+			const orgs_values = GetValues(
+				atlasExpression.filter(r => r.type == 'organism_part')
+			);
+			const dis_values = GetValues(
+				atlasExpression.filter(r => r.type == 'disease_state')
+			);
+
 			const data = [
 				{
-					y: expressions,
+					y: orgs_values.map(r => r.value),
 					type: 'box',
-					name: res.name,
-					jitter: 0.3,
-					pointpos: -1.8,
+					name: 'Organism Part',
 					marker: {
 						color: 'rgb(7,40,89)'
 					},
-					boxpoints: 'all'
+					boxpoints: 'all',
+					text: orgs_values.map(r => r.name)
+				},
+				{
+					y: dis_values.map(r => r.value),
+					type: 'box',
+					name: 'Disease State',
+					marker: {
+						color: 'rgb(7,123,56)'
+					},
+					boxpoints: 'all',
+					text: dis_values.map(r => r.name),
+					textinfo: 'text'
 				}
 			];
 
-			Plotly.newPlot('viz', data, {}, { displayModeBar: false });
+			Plotly.newPlot(
+				'viz',
+				data,
+				{ title: 'Expression Value Visualizer' },
+				{ displayModeBar: false }
+			);
 		});
 	}
 
@@ -35,7 +60,6 @@ class RootContainer extends React.Component {
 		return (
 			<div className="rootContainer">
 				<div id="viz"></div>
-				<h1>Your Data Viz Here</h1>
 			</div>
 		);
 	}
