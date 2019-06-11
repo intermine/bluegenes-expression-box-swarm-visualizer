@@ -17,6 +17,9 @@ describe('query', () => {
 				expect(res).toHaveProperty('atlasExpression');
 				expect(res.atlasExpression).toBeInstanceOf(Array);
 				expect(res.atlasExpression.length).toBeGreaterThanOrEqual(1);
+				res.atlasExpression.forEach(r =>
+					expect(r.expression).not.toBe('NONDE')
+				);
 			});
 		});
 
