@@ -43,7 +43,7 @@ function queryData(geneId, serviceUrl, imjsClient = imjs) {
 				if (data && data.length) resolve(data[0]);
 				else reject('No data found!');
 			})
-			.catch(reject);
+			.catch(() => reject('No data found!'));
 	});
 }
 

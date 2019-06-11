@@ -5,6 +5,7 @@ describe('query', () => {
 	describe('geneToExpression', () => {
 		const mockData = {
 			geneId: 1257384,
+			wrongGeneId: 1231231,
 			serviceUrl: 'http://www.humanmine.org/human'
 		};
 
@@ -17,6 +18,15 @@ describe('query', () => {
 				expect(res.atlasExpression).toBeInstanceOf(Array);
 				expect(res.atlasExpression.length).toBeGreaterThanOrEqual(1);
 			});
+		});
+
+		test('should return rejected promise when data does not exist', () => {
+			const promise = queryData(
+				mockData.wrongGeneId,
+				mockData.serviceUrl,
+				imjs
+			);
+			return promise.catch(er => expect(er).toBe('No data found!'));
 		});
 	});
 });
