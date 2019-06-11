@@ -13,6 +13,7 @@ function main(el, service, imEntity, state, config) {
 			serviceUrl={service.root}
 			entity={imEntity}
 			config={config}
+			testing={state.testing}
 		/>,
 		el
 	);

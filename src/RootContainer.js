@@ -15,6 +15,9 @@ class RootContainer extends React.Component {
 			serviceUrl
 		} = this.props;
 
+		// return immediately if we're at testing mode
+		if (this.props.testing) return;
+
 		queryData(geneId, serviceUrl).then(res => {
 			this.setState({ loading: false });
 			const { atlasExpression } = res;
