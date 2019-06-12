@@ -1,0 +1,62 @@
+.bluegenesExpressionBoxSwarmVisualizer {
+  // put all your css classes inside this block. Keeping them
+  // nested under the tool name prevents your styles from
+  // leaking out and affecting other elements by accident.
+
+  // If you want to learn more about LESS, visit lesscss.org.
+
+  // to build your css, run `lessc src/style.css dist/style.css --clean-css`
+  // in your terminal
+
+
+	// this is just an example class for root div element, you may modify or delete it as per your usecase
+	font-family: sans-serif;
+	
+	.rootContainer {
+		border: 1px solid black;
+		padding: 20px;
+	}
+	
+	.error {
+		font-weight: 300;
+		font-size: 26px;
+	}
+
+	.loading-container {
+		display: flex;
+		justify-content: center;
+		.balls {
+			width: 3.5em;
+			display: flex;
+			flex-flow: row nowrap;
+			align-items: center;
+			justify-content: space-between;
+		}
+		
+		.balls div {
+			width: 0.8em;
+			height: 0.8em;
+			border-radius: 50%;
+			background-color: #fc2f70;
+			transform: translateY(-100%);
+			animation: wave 0.8s ease-in-out alternate infinite;
+		}
+		
+		.balls div:nth-of-type(1) {
+			animation-delay: -0.4s;
+		}
+		
+		.balls div:nth-of-type(2) {
+			animation-delay: -0.2s;
+		}
+		
+		@keyframes wave {
+			from {
+				transform: translateY(-100%);
+			}
+			to {
+				transform: translateY(100%);
+			}
+		}
+	}
+}
