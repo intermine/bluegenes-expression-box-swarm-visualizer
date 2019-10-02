@@ -3,6 +3,7 @@
   "classes":
     ["Gene"]
   ,
+  "depends": ["AtlasExpression"],
   "columnMapping": {
     "Gene": {
       "id": "primaryIdentifier"
