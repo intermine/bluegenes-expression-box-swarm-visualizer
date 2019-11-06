@@ -1,8 +1,8 @@
 {
   "name": "@intermine/bluegenes-expression-box-swarm-visualizer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "src/index.js",
-  "description": "",
+  "description": "Visualize expression data using a combination of box and swarm plots. Both disease and organism expressions are shown side by side along with a five pointer summary of the dataset. Hover over the plot for more information.",
   "homepage": "http://www.intermine.org",
   "scripts": {
     "test": "jest",
