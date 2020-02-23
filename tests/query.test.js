@@ -4,9 +4,9 @@ const queryData = require('../src/query').default;
 describe('query', () => {
 	describe('geneToExpression', () => {
 		const mockData = {
-			geneId: 1257384,
+			geneId: 1205472,
 			wrongGeneId: 1231231,
-			serviceUrl: 'http://www.humanmine.org/human'
+			serviceUrl: 'https://www.humanmine.org/humanmine'
 		};
 
 		test('should return atlasExpression array when given correct geneId', () => {
