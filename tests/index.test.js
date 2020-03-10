@@ -12,8 +12,8 @@ describe('main', () => {
 	test('should render something (atleast a div) when initialsied', () => {
 		const mockData = {
 			el: document.createElement('div'),
-			service: { root: 'http://www.humanmine.org/human' },
-			entity: { value: 1257384 },
+			service: { root: 'https://www.humanmine.org/humanmine' },
+			entity: { value: 1205472 },
 			state: { testing: true }
 		};
 		main(mockData.el, mockData.service, mockData.entity, mockData.state, {});
