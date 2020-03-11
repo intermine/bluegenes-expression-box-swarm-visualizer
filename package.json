@@ -4,6 +4,10 @@
   "main": "src/index.js",
   "description": "Visualize expression data using a combination of box and swarm plots. Both disease and organism expressions are shown side by side along with a five pointer summary of the dataset. Hover over the plot for more information.",
   "homepage": "http://www.intermine.org",
+  "repository": {
+  "type": "git",
+   "url": "https://github.com/intermine/bluegenes-expression-box-swarm-visualizer"
+  },
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/webpack",
