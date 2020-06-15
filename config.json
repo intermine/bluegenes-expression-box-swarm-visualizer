@@ -1,8 +1,6 @@
 {
-  "accepts": ["id"]  ,
-  "classes":
-    ["Gene"]
-  ,
+  "accepts": ["id"],
+  "classes": ["Gene"],
   "depends": ["AtlasExpression"],
   "columnMapping": {
     "Gene": {
@@ -19,5 +17,6 @@
   "toolName" : {
     "human" :"BlueGenes Expression Box Swarm Visualizer",
     "cljs" :"bluegenesExpressionBoxSwarmVisualizer"    
-  }
+  },
+  "version": 2
 }
