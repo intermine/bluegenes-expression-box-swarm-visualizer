@@ -13,7 +13,7 @@ describe('main', () => {
 		const mockData = {
 			el: document.createElement('div'),
 			service: { root: 'https://www.humanmine.org/humanmine' },
-			entity: { value: 1205472 },
+			entity: { Gene: { value: 1205472 } },
 			state: { testing: true }
 		};
 		main(mockData.el, mockData.service, mockData.entity, mockData.state, {});
